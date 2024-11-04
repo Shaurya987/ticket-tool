@@ -5,91 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prayatna IT Support</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+         /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            background-color: #ffffff;
-        }
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
 
-        .logo-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 250px;
-            background-color: #f7c38d; /* Orange/yellow background */
-            z-index: -1;
-            border-bottom-left-radius: 100px;
-            border-bottom-right-radius: 100px; /* Curved white section */
-        }
+.logo-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-color: #f7c38d;
+    z-index: -1;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
 
-        .logo-container {
-            margin-top: 40px; /* Position logo higher */
-            display: flex;
-            justify-content: center;
-        }
+.logo-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
 
-        .logo-container img {
-            width: 200px; /* Adjusted logo size */
-            transition: opacity 1.2s ease, transform 1.2s ease;
-        }
+.logo-container img {
+    width: 200px;
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
 
-        .button-container {
-            margin-top: 350px; /* More space between logo and buttons */
-            display: flex;
-            gap: 190px; /* Larger spacing between buttons */
-            justify-content: center;
-        }
+.button-container {
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-        .action-button {
-            background-color: #5c3a22;
-            border: none;
-            color: white;
-            padding: 25px 70px; /* Larger buttons */
-            border-radius: 30px;
-            font-size: 20px; /* Bigger font size */
-            cursor: pointer;
-            transition: all 0.4s ease, transform 0.4s ease; /* Animation for hover and transitions */
-        }
+.action-button {
+    background-color: #5c3a22;
+    border: none;
+    color: white;
+    padding: 25px 70px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.4s ease, transform 0.4s ease;
+    margin: 0 30px;
+} 
 
-        .action-button:hover {
-            background-color: #b87333;
-            transform: scale(1.15); /* More noticeable scale-up on hover */
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Button shadow effect */
-        }
+.action-button:hover {
+    background-color: #b87333;
+    transform: scale(1.15);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
 
-        .contact-info {
-            margin-top: 150px; /* More space between buttons and text */
-            font-weight: bold;
-            text-align: center;
-            font-size: 16px; /* Larger text for contact info */
-            opacity: 0;
-            transform: translateY(50px); /* Start from further down */
-            transition: opacity 1s ease, transform 1s ease; /* Smooth transition for text */
-        }
+.contact-info {
+    margin-top: 150px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
 
-        /* Animations */
-        .hidden {
-            opacity: 0;
-            transform: translateY(50px); /* Start all elements lower down */
-        }
+/* Animations */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+}
 
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 1.2s ease, transform 1.2s ease; /* Smooth transitions */
-        }
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
 
+/* Tablet Styles */
+@media (max-width: 768px) {
+    .logo-background {
+        height: 200px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+
+    .logo-container {
+        margin-top: 20px;
+    }
+
+    .button-container {
+        margin-top: 250px;
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-button {
+        padding: 20px 50px;
+        font-size: 18px;
+    }
+
+    .contact-info {
+        margin-top: 100px;
+    }
+}
+
+/* Large Phone Styles (between 480px and 600px) */
+@media (max-width: 600px) {
+    .logo-background {
+        height: 180px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+    .logo-container {
+        margin-top: 15px;
+    }
+
+    .button-container {
+        margin-top: 200px;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    .action-button {
+        padding: 18px 45px;
+        font-size: 16px;
+        width: 85%; /* Fit buttons within screen width */
+    }
+
+    .contact-info {
+        margin-top: 80px;
+    }
+}
+
+/* Small Phone Styles (max-width 480px) */
+@media (max-width: 480px) {
+    .logo-background {
+        height: 150px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+
+    .logo-container {
+        margin-top: 10px;
+    }
+
+    .button-container {
+        margin-top: 150px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        width: 75%;
+    }
+
+    .action-button {
+        padding: 15px 40px;
+        font-size: 15px;
+        width: 85%; /* Adjust width for smaller phones */
+        margin: 10px 0;
+    }
+
+    .contact-info {
+        margin-top: 210px;
+        font-size: 14px;
+    }
+}
+
+/* Extra Small Phone Styles (max-width 360px) */
+@media (max-width: 360px) {
+    .logo-background {
+        height: 120px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .logo-container {
+        margin-top: 5px;
+    }
+
+    .button-container {
+        margin-top: 120px;
+        gap: 8px;
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+
+    .action-button {
+        padding: 12px 35px;
+        font-size: 14px;
+        width: 65%; /* Fit buttons within extra small screens */
+        margin: 8px 0;
+    }
+
+    .contact-info {
+        margin-top: 50px;
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>
@@ -101,13 +229,10 @@
     </div>
 
     <!-- Buttons -->
-<div class="button-container hidden" id="buttons">
-    <!-- Button redirects to 'raise_ticket.py' page -->
-    <button class="action-button" onclick="window.location.href='raise_ticket.py'">Raise Ticket</button>
-    
-    <!-- Button redirects to 'check_status.py' page -->
-    <button class="action-button" onclick="window.location.href='check_status.py'">Check Your Status</button>
-</div>
+    <div class="button-container hidden" id="buttons">
+        <button class="action-button" onclick="window.location.href='raise_ticket.py'">Raise Ticket</button>
+        <button class="action-button" onclick="window.location.href='check_status.py'">Check Your Status</button>
+    </div>
 
     <!-- Contact Info -->
     <div class="contact-info hidden" id="contact-info">
@@ -119,17 +244,14 @@
     <script>
         window.onload = function() {
             setTimeout(() => {
-                // Show logo with smooth animation
                 document.getElementById('logo').classList.add('visible');
             }, 500);
 
             setTimeout(() => {
-                // Show buttons with smooth animation
                 document.getElementById('buttons').classList.add('visible');
             }, 1500);
 
             setTimeout(() => {
-                // Show contact info with smooth animation
                 document.getElementById('contact-info').classList.add('visible');
             }, 2500);
         };
