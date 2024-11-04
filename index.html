@@ -71,16 +71,32 @@ body {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
+ /* Import a Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+/* Updated .contact-info Style */
 .contact-info {
     margin-top: 150px;
     font-weight: bold;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px; /* Slightly larger font */
+    font-family: 'Playfair Display', serif; /* Elegant serif font */
+    color: #5c3a22; /* Rich, warm color */
+    background: linear-gradient(to right, #5c3a22, #b87333); /* Gradient text effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the gradient visible */
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
 }
 
+/* Optional Enhanced Hover Effect */
+.contact-info:hover {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); /* Bolder shadow on hover */
+    transform: translateY(0px) scale(1.05); /* Small hover scale effect */
+    transition: all 0.4s ease-in-out;
+}
 /* Animations */
 .hidden {
     opacity: 0;
