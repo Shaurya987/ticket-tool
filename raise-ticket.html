@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container for the form */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #f7c38d;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        .header h2 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Aligning the Home Page button centrally with the heading */
+        .header button {
+            background-color: #5c3a22;
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .header button:hover {
+            background-color: #b87333;
+        }
+
+        /* Form Styling */
+        form {
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group label {
+            font-size: 18px;
+            flex: 1;
+            margin-right: 20px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            flex: 2;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #f3f3f3;
+            width: 100%;
+        }
+
+        .form-group input[type="file"] {
+            padding: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Submit Button */
+        .submit-btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .submit-btn {
+            background-color: #5c3a22;
+            border: none;
+            color: white;
+            padding: 10px 40px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #b87333;
+        }
+
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* Error Message Styling */
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .form-group, .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label, .form-group input, .form-group textarea {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .header h2 {
+                margin-bottom: 15px;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 12px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h2 {
+                font-size: 24px;
+            }
+
+            .header button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h2>Raise Ticket</h2>
+            <button>Home Page</button>
+        </div>
+
+        <!-- Form Section -->
+        <form id="ticketForm" onsubmit="return validateForm()">
+            <!-- First Row: Name and Designation -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name="designation" required>
+                    <span class="error" id="designationError"></span>
+                </div>
+            </div>
+
+            <!-- Work Email Field -->
+            <div class="form-group">
+                <label for="email">Work Email</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <!-- Mobile Number Field -->
+            <div class="form-group">
+                <label for="mobile">Mobile No.</label>
+                <input type="text" id="mobile" name="mobile" required>
+                <span class="error" id="mobileError"></span>
+            </div>
+
+            <!-- Attachment Field -->
+            <div class="form-group">
+                <label for="file">Attachment</label>
+                <input type="file" id="file" name="file">
+            </div>
+
+            <!-- Describe Issue Field -->
+            <div class="form-group">
+                <label for="issue">Describe your Issue</label>
+                <textarea id="issue" name="issue" rows="5" required></textarea>
+                <span class="error" id="issueError"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submit-btn-container">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+
+        <!-- Footer Information -->
+        <div class="footer">
+            <p>IT PRAYATNA</p>
+            <p>CONTACT: +91 1203288717</p>
+            <p>Email: abc@prayatnaworld.org</p>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let valid = true;
+
+            // Get form fields
+            let name = document.getElementById('name').value.trim();
+            let designation = document.getElementById('designation').value.trim();
+            let email = document.getElementById('email').value.trim();
+            let mobile = document.getElementById('mobile').value.trim();
+            let issue = document.getElementById('issue').value.trim();
+
+            // Clear previous error messages
+            document.getElementById('nameError').textContent = "";
+            document.getElementById('designationError').textContent = "";
+            document.getElementById('emailError').textContent = "";
+            document.getElementById('mobileError').textContent = "";
+            document.getElementById('issueError').textContent = "";
+
+            // Validate Name
+            if (name === "") {
+                document.getElementById('nameError').textContent = "Name is required";
+                valid = false;
+            }
+
+            // Validate Designation
+            if (designation === "") {
+                document.getElementById('designationError').textContent = "Designation is required";
+                valid = false;
+            }
+
+            // Validate Email
+            if (email === "") {
+                document.getElementById('emailError').textContent = "Email is required";
+                valid = false;
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('emailError').textContent = "Enter a valid email address";
+                valid = false;
+            }
+
+            // Validate Mobile
+if (mobile === "") {
+    document.getElementById('mobileError').textContent = "Mobile number is required";
+    valid = false;
+} else if (!/^\d{10}$/.test(mobile)) {
+    document.getElementById('mobileError').textContent = "Enter a valid 10-digit mobile number";
+    valid = false;
+}
+
+// Validate Issue
+if (issue === "") {
+    document.getElementById('issueError').textContent = "Please describe your issue";
+    valid = false;
+}
+
+return valid;
